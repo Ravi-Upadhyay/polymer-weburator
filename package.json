@@ -1,10 +1,10 @@
 {
-  "name": "polymer-starter-kit",
-  "version": "4.0.0",
-  "description": "A starting point for Polymer apps",
-  "author": "The Polymer Authors",
+  "name": "weburator",
+  "version": "1.0.0",
+  "description": "An Web Application Curator",
+  "author": "Ravi Upadhyay",
   "license": "BSD-3-Clause",
-  "repository": "Polymer/polymer-starter-kit",
+  "repository": "Ravi-Upadhyay/polymer-weburatorr",
   "scripts": {
     "start": "polymer serve",
     "build": "polymer build",
@@ -22,6 +22,7 @@
     "@polymer/iron-pages": "^3.0.0-pre.15",
     "@polymer/iron-selector": "^3.0.0-pre.15",
     "@polymer/paper-icon-button": "^3.0.0-pre.15",
+    "@polymer/paper-input": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
     "@webcomponents/webcomponentsjs": "^2.0.0"
   },

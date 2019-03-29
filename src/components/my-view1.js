@@ -9,8 +9,17 @@
  */
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '@polymer/iron-ajax/iron-ajax.js'
+import '@polymer/iron-ajax/iron-ajax.js';
+// import '@polymer/paper-input/paper-input.js';
+// import '@polymer/paper-input/paper-input-container.js';
 import '../styles/shared-styles.js';
+
+/**
+ * Importing the layout configuration, 
+ * TODO: Proper pipeline for error handling, No data, Probable the using AJAX
+ */
+// import configuration from '../configurations/configurator.js'
+// console.log(configuration);
 
 class MyView1 extends PolymerElement {
   static get template() {
@@ -18,20 +27,76 @@ class MyView1 extends PolymerElement {
       <style include="shared-styles">
         :host {
           display: block;
-
           padding: 10px;
         }
       </style>
 
       <div class="card">
-        <div class="circle">1</div>
-        <h1>View One</h1>
-        <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-        <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+        <form>
+          <table class="wct-form-table">
+            <template is="dom-repeat" items="[[configuration]]">
+              <template is="dom-if" if="[[item.active]]">
+                <tr>
+                  <template is="dom-if" if="[[item.label]]">
+                    <td>
+                      <label>[[item.label]]</label>
+                    </td>
+                  </template>
+                  <td>
+                    <input type="[[item.type]]" id="[[item.id]]" name="[[item.name]]" value="[[item.value]]"></input>
+                  </td>
+                </tr>
+              </template>
+            </template>
+          <table>
+        </form>
       </div>
-
       
+      <iron-ajax
+       auto
+       method="GET"
+       url="src/configurations/configurator.json"
+       on-response="_readConfiguration" 
+       handle-as="json"
+      ><iron-ajax>
+
     `;
+  }
+
+  static get properties(){
+    return {
+      requiredConfig : {
+        type  : String,
+        value : "rememberMeLogin"
+      },
+      dataAvailable : {
+        type  : Boolean,
+        value : false
+      },
+      dataModel : {
+        type  : Object
+      },
+      configuration : Object
+
+    };
+  }
+
+  _readConfiguration(event,request){
+    /**
+     * Reading the configuration, Handling the promise
+     * And Setting the configuration according to required configuration
+     */
+    request.completes.then(()=>{
+      console.log(`Succeed:`);
+      this.set('dataAvailable', true);
+      this.set('configuration',request.response[this.requiredConfig]);
+      console.log(`dataAvailable: ${this.dataAvailable}`);
+      console.log(this.configuration);
+    }, ()=>{
+      console.log(`Failed:`);
+      console.log(request.response);
+      this.set('dataAvailable', false);
+    });
   }
 }
 

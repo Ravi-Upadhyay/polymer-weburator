@@ -40,6 +40,23 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         color: #212121;
         font-size: 22px;
       }
+
+      form {
+        width : 60%;
+        margin : 50px auto;
+      }
+
+      table.wct-form-table {
+        width : 100%;
+      }
+
+      table.wct-form-table tr {
+        width : 100%;
+        height : 30px;
+      }
+      table.wct-form-table tr td {
+        margin : auto;
+      }
     </style>
   </template>
 </dom-module>`;

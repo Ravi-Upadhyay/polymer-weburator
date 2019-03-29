@@ -1,0 +1,63 @@
+{
+    "simpleLogin"   : [
+        {
+            "type"      : "text",
+            "label"     : "User name",
+            "name"      : "userName",
+            "id"        : "userName",
+            "active"    : true
+        },
+        {
+            "type"      : "password",
+            "label"     : "Password",
+            "name"      : "password",
+            "id"        : "password",
+            "active"    : true
+        },
+        {
+            "type"      : "button",
+            "value"     : "Login",
+            "name"      : "login",
+            "id"        : "login",
+            "active"    : true
+        },
+        {
+            "type"      : "checkbox",
+            "label"     : "Remember Me",
+            "name"      : "rememberMe",
+            "id"        : "rememberMe",
+            "active"    : false
+        }
+    ],
+
+    "rememberMeLogin": [
+        {
+            "type"      : "text",
+            "label"     : "User name",
+            "name"      : "userName",
+            "id"        : "userName",
+            "active"    : true
+        },
+        {
+            "type"      : "password",
+            "label"     : "Password",
+            "name"      : "password",
+            "id"        : "password",
+            "active"    : true
+        },
+        {
+            "type"      : "button",
+            "value"     : "Login",
+            "name"      : "login",
+            "id"        : "login",
+            "active"    : true
+        },
+        {
+            "type"      : "checkbox",
+            "label"     : "Remember Me",
+            "name"      : "rememberMe",
+            "id"        : "rememberMe",
+            "active"    : true
+        }
+    ]
+}
