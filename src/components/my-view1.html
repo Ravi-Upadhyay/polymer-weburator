@@ -26,12 +26,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <h1>View One</h1>
       <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
       <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
-    </div>
+    </div> 
+
+    <iron-ajax
+     auto
+     url= "src\configurations\configurator.json"
+     handle-as="json"
+     on-response="_handleResponse"
+     >
+    </iron-ajax>
+    
   </template>
 
   <script>
     class MyView1 extends Polymer.Element {
       static get is() { return 'my-view1'; }
+
+      _handleResponse(res){
+        console.log(`Hello this is my response ${res}`);
+      }
     }
 
     window.customElements.define(MyView1.is, MyView1);
