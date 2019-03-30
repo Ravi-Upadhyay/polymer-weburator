@@ -2,6 +2,7 @@
     "loginConfigurations"  : [
         {
             "id"    : "simpleLogin",
+            "description"   : "A minimal login form",
             "data"  : [
                 {
                     "type"      : "text",
@@ -35,6 +36,7 @@
         },
         {
             "id"    : "rememberMeLogin",
+            "description"   : "A login form with remember me check",
             "data"  : [
                 {
                     "type"      : "text",
@@ -70,6 +72,7 @@
     "signupConfigurations"  : [
         {
             "id"    : "simpleSignup",
+            "description"   : "A minimal signup form",
             "data"  : [
                 {
                     "type"      : "text",
@@ -131,12 +134,20 @@
         },
         {
             "id"    : "detailedSignup",
+            "description"   : "A signup form with gender",
             "data"  : [
                 {
                     "type"      : "text",
-                    "label"     : "User name",
-                    "name"      : "userName",
-                    "id"        : "userName",
+                    "label"     : "Name",
+                    "name"      : "name",
+                    "id"        : "name",
+                    "active"    : true
+                },
+                {
+                    "type"      : "email",
+                    "label"     : "Email",
+                    "name"      : "email",
+                    "id"        : "email",
                     "active"    : true
                 },
                 {
@@ -147,17 +158,41 @@
                     "active"    : true
                 },
                 {
-                    "type"      : "submit",
-                    "value"     : "Login",
-                    "name"      : "login",
-                    "id"        : "login",
+                    "type"      : "password",
+                    "label"     : "Re-enter Password",
+                    "name"      : "re-password",
+                    "id"        : "re-password",
                     "active"    : true
                 },
                 {
-                    "type"      : "checkbox",
-                    "label"     : "Remember Me",
-                    "name"      : "rememberMe",
-                    "id"        : "rememberMe",
+                    "type"      : "number",
+                    "label"     : "Contact No",
+                    "name"      : "contact",
+                    "id"        : "contact",
+                    "active"    : true
+                },
+                {
+                    "type"      : "radio",
+                    "label"     : "Gender",
+                    "name"      : "gender",
+                    "id"        : "gender",
+                    "options"   : [
+                        {
+                            "value" : "male", 
+                            "label"   : "Male"
+                        },
+                        {
+                            "value" : "female", 
+                            "label"   : "Female"                            
+                        }
+                    ],
+                    "active"    : true
+                },
+                {
+                    "type"      : "submit",
+                    "value"     : "Signup",
+                    "name"      : "signup",
+                    "id"        : "signup",
                     "active"    : true
                 }
             ]

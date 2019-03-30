@@ -51,7 +51,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         justify-content: center;
         align-items: center;
         align-self: center;
-        margin : 50px auto;
+        margin : 30px 0 0 0;
         min-width: 50%;
         color: var(--app-secondary-color);
       }
@@ -65,7 +65,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         border-radius : 10px;
         box-shadow : 1px 2px 2px grey;
         padding : 50px 20px;
-        width: 100%;
+        width: 90%;
       }
 
       table.wct-form-table tr {
@@ -79,7 +79,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       
       table.wct-form-table tr td {
         display: flex;
-        flex-direction: row;
+        flex-flow: row nowrap;
         justify-content: center;
         align-items: center;
         flex: 1 0 0;
@@ -103,6 +103,24 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         color: white;
         font-weight: bold;
         border: none;
+      }
+
+      div.wct-json-display{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        margin-top : 10px;
+        width: 90%;
+        background-color: #e5e5e5;
+        color: var(--app-secondary-color);
+        border  : 1px solid grey;
+        border-radius : 5px;
+      }
+
+      pre{
+        width: 100%;
       }
     </style>
   </template>

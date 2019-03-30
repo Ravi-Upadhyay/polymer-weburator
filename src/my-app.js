@@ -102,8 +102,8 @@ class MyApp extends PolymerElement {
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <wct-login configurations="[[loginConfigurations]]" head-text="Hope you enjoyed, Let's continue" name="view1"></wct-login>
-            <wct-login configurations="[[signupConfigurations]]" head-text="Welcome, Let's do something amazing" name="view2"></wct-signup>
+            <wct-login configurations="[[loginConfigurations]]" head-text="Login Configurations" name="view1"></wct-login>
+            <wct-login configurations="[[signupConfigurations]]" head-text="Signup Configurations" name="view2"></wct-signup>
             <!-- <my-view3 name="view3"></my-view3> -->
             <my-view404 name="view404"></my-view404>
           </iron-pages>

@@ -25,47 +25,61 @@ class WctLogin extends PolymerElement {
 
         <h1>[[headText]]</h1>
 
-        <!-- TODO: Advanced Version, Give user choice to change configuration on the fly...
-        <form>
-          <table class="wct-form-table">
-            <tr>
-              <td>Configurations</td>
-              <td>
-                <template is="dom-repeat" items="[[configurations]]">
-                  <div id="[[item.id]]" on-click="changeConfiguration">
-                    <input type="radio" value="[[item.id]]" name="selected" checked="[[isChecked(item.id)]]">
-                    <label for="[[item.id]]">[[item.id]]</label>
-                  </div>
-                </template>
-              </td>
-            </tr>
-          </table>
-        </form> -->
-
-        <form class="wct-form" id="login-form" enctype="multipart/form-data">
-          <table class="wct-form-table">
-            <template is="dom-repeat" items="[[selectedConfiguration]]">
-              <template is="dom-if" if="[[item.active]]">
-                <tr>
-                  <template is="dom-if" if="[[item.label]]">
+        <template is="dom-repeat" items="[[configurations]]" as="config">
+          <h3>[[config.description]]</h3>
+          <form class="wct-form" id="[[config.id]]" name="[[config.id]]" enctype="multipart/form-data">
+            <table class="wct-form-table">
+              
+              <template is="dom-repeat" items="[[config.data]]">
+                <template is="dom-if" if="[[item.active]]">
+                  <tr>
+                    <template is="dom-if" if="[[item.label]]">
+                      <td>
+                        <label>[[item.label]]</label>
+                      </td>
+                    </template>
                     <td>
-                      <label>[[item.label]]</label>
+                      <template is="dom-if" if="[[!isRadio(item.type)]]">
+                        <input type="[[item.type]]" id="[[item.id]]" name="[[item.name]]" value="[[item.value]]">
+                      </template>
+                      <template is="dom-if" if="[[isRadio(item.type)]]">
+                        <template is="dom-repeat" items="[[item.options]]" as="option">
+                          <input type="[[item.type]]" id="[[option.value]]" name="[[item.name]]" value="[[option.value]]">
+                          <label for="[[option.value]]">[[option.label]]</label>
+                        </template>
+                      </template>
                     </td>
-                  </template>
-                  <td>
-                    <input type="[[item.type]]" id="[[item.id]]" name="[[item.name]]" value="[[item.value]]"></input>
-                  </td>
-                </tr>
+                  </tr>
+                </template>
               </template>
-            </template>
-          <table>
-        </form>
+            <table>
+          </form>
+
+          <div class="wct-json-display">
+            <pre>
+              [[getJSON(config)]]
+            </pre>
+          </div>
+        </template>
+
+
       </div>
     `;
   }
 
   ready(){
     super.ready();
+
+    let forms = this.shadowRoot.querySelectorAll("form");
+    forms.forEach((item)=>{
+      item.addEventListener('submit',(event)=>{
+        event.preventDefault();  
+        alert('I got it, Working on your request');
+        
+        // TODO: Here we can handle data in a way we desire
+      });
+    });
+    debugger;
   }
 
   static get properties(){
@@ -132,6 +146,10 @@ class WctLogin extends PolymerElement {
   }
   */
 
+  isRadio(type){
+    return type === "radio";
+  }
+
   _generateModel(){
     /**
      * To Enable the functionality of model and to submit
@@ -145,6 +163,10 @@ class WctLogin extends PolymerElement {
       alert('I got it, Working on your request');
       // TODO: Here we can handle data in a way we desire
     });
+  }
+
+  getJSON(config){
+    return JSON.stringify(config,undefined,2);
   }
 }
 
