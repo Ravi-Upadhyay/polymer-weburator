@@ -8,19 +8,19 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
-import '@polymer/app-layout/app-drawer/app-drawer.js';
-import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
-import '@polymer/app-layout/app-header/app-header.js';
-import '@polymer/app-layout/app-header-layout/app-header-layout.js';
-import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js';
-import '@polymer/app-layout/app-toolbar/app-toolbar.js';
-import '@polymer/app-route/app-location.js';
-import '@polymer/app-route/app-route.js';
-import '@polymer/iron-pages/iron-pages.js';
-import '@polymer/iron-selector/iron-selector.js';
-import '@polymer/paper-icon-button/paper-icon-button.js';
+import { PolymerElement, html } from '../node_modules/@polymer/polymer/polymer-element.js';
+import { setPassiveTouchGestures, setRootPath } from '../node_modules/@polymer/polymer/lib/utils/settings.js';
+import '../node_modules/@polymer/app-layout/app-drawer/app-drawer.js';
+import '../node_modules/@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
+import '../node_modules/@polymer/app-layout/app-header/app-header.js';
+import '../node_modules/@polymer/app-layout/app-header-layout/app-header-layout.js';
+import '../node_modules/@polymer/app-layout/app-scroll-effects/app-scroll-effects.js';
+import '../node_modules/@polymer/app-layout/app-toolbar/app-toolbar.js';
+import '../node_modules/@polymer/app-route/app-location.js';
+import '../node_modules/@polymer/app-route/app-route.js';
+import '../node_modules/@polymer/iron-pages/iron-pages.js';
+import '../node_modules/@polymer/iron-selector/iron-selector.js';
+import '../node_modules/@polymer/paper-icon-button/paper-icon-button.js';
 import './styles/my-icons.js';
 
 // Gesture events like tap and track generated from touch will not be

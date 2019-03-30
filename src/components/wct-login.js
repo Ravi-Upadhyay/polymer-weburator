@@ -8,8 +8,8 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '@polymer/iron-ajax/iron-ajax.js';
+import { PolymerElement, html } from '../../node_modules/@polymer/polymer/polymer-element.js';
+import '../../node_modules/@polymer/iron-ajax/iron-ajax.js';
 import '../styles/shared-styles.js';
 
 class WctLogin extends PolymerElement {
@@ -40,7 +40,7 @@ class WctLogin extends PolymerElement {
           </table>
         </form> -->
 
-        <form>
+        <form id="login-form" enctype="multipart/form-data">
           <table class="wct-form-table">
             <template is="dom-repeat" items="[[selectedConfiguration]]">
               <template is="dom-if" if="[[item.active]]">
@@ -69,6 +69,10 @@ class WctLogin extends PolymerElement {
       ><iron-ajax>
 
     `;
+  }
+
+  ready(){
+    super.ready();
   }
 
   static get properties(){
@@ -127,24 +131,36 @@ class WctLogin extends PolymerElement {
    */  
   _getRequiredConfiguration(){
     if(this.selected) {
-      this.configurations.forEach((item, index)=>{
+      this.configurations.some((item, index)=>{
         if(item.id === this.selected) {
           this.set('selectedConfiguration', item.data);
           this._generateModel();
-          break;
+          return true;
         }
       });
     }
   }
 
+  /**
+   * RESERVED - FOR FUTURE USE, Can have mechanism to change UI
+   * layout on the fly.
+   * 
   isChecked(itemId){
     return (itemId === this.selected) ? true : false;
   }
+  */
 
   _generateModel(){
-    // for(let key in this.selectedConfiguration){
-      
-    // }
+    /**
+     * To Enable the functionality of model and to submit
+     * the form data their may be two approaches
+     */
+    const form = this.shadowRoot.querySelector("#login-form");
+    form.addEventListener('submit',(event)=>{
+      event.preventDefault();
+      let loginData = new FormData(form);
+      // TODO: Here we can handle data in a way we desire
+    });
   }
 }
 
