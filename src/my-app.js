@@ -85,8 +85,8 @@ class MyApp extends PolymerElement {
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="view1" href="[[rootPath]]view1">Login Configurations</a>
-            <a name="view2" href="[[rootPath]]view2">View Two</a>
-            <a name="view3" href="[[rootPath]]view3">View Three</a>
+            <a name="view2" href="[[rootPath]]view2">Signup Configurations</a>
+            <!-- <a name="view3" href="[[rootPath]]view3">View Three</a> -->
           </iron-selector>
         </app-drawer>
 
@@ -96,14 +96,14 @@ class MyApp extends PolymerElement {
           <app-header slot="header" condenses="" reveals="" effects="waterfall">
             <app-toolbar>
               <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-              <div main-title="">My App</div>
+              <div main-title="">Weburator</div>
             </app-toolbar>
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
             <wct-login name="view1"></wct-login>
-            <my-view2 name="view2"></my-view2>
-            <my-view3 name="view3"></my-view3>
+            <wct-signup name="view2"></wct-signup>
+            <!-- <my-view3 name="view3"></my-view3> -->
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -158,10 +158,10 @@ class MyApp extends PolymerElement {
         import('./components/wct-login.js');
         break;
       case 'view2':
-        import('./components/my-view2.js');
+        import('./components/wct-signup.js');
         break;
       case 'view3':
-        import('./components/my-view3.js');
+        // import('./components/my-view3.js');
         break;
       case 'view404':
         import('./components/my-view404.js');
