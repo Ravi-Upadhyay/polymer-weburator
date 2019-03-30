@@ -16,7 +16,11 @@ ___
 
 ## Introduction<a name="intro"></a>
 
-//TODO: Add the description later.
+The idea is to have an application that can created interactive UI/UX layouts based on the configurations and later the idea is to expand. Choose the layout which suits your needs from the available layouts. This layouts will be in fully working condition.
+
+It will have model to support and store data. It will have derive action needs to take on submission from data.
+
+Now - `Version 1.0.0`: To see what has been done jump to [Already Covered](#best-practices)
 
 ---
 
@@ -84,15 +88,16 @@ polymer serve --module-resolution=node
 ## Already Covered<a name="best-practices"></a>
 
 1. Robust handling and cleaning of the state when data changes.
-2. 
+2. Now, handling only `input` elements, elements like `select` and are not being handled.
 
 ---
 
 ## What's next<a name="future-plans"></a>
 
-1. In the `configurator.json` in future we can provide the additional field with (`id`, `data`) that will store the `id` of the `form` element for other elements to associate with.
-2. 
-3. 
+1. In the `configurator.json` in future we can provide the additional field with (`id`, `data`) that will store the `id` of the `form` element for other elements to associate with. 
+2. To provide mechanism to change the code on the fly. To give option to select from one from the available configurations.
+3. To provide more details/information about the fields to provide more customizable option. Like `required`, `min`, `max`
+4. To check and increase the number of elements compatable with the solution.
 
 
 ---
@@ -108,7 +113,7 @@ polymer serve --module-resolution=node
 1. ~~Make `configurator.json` to handle more complex data structure.~~
 2. ~~Make error handling more robust while calling the api.~~ 
 3. ~~Create event handler to properly submit form data through AJAX.~~
-4. To give proper introduction of the project.
-5. Mention best practices followed in the code.
+4. ~~To give proper introduction of the project.~~
+5. Keep mention best practices followed in the code.
 6. Keep mentioning the ideas.
-7. To provide mechanism to change the code on the fly. To give option to select from one from the available configurations.
+7. Unit testing

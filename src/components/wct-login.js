@@ -115,7 +115,7 @@ class WctLogin extends PolymerElement {
     if(configurations.length) {
       this.set('gotResponse', true);
       this.set('configurations', configurations);
-      this.set('selected', configurations[0]["id"]);
+      this.set('selected', configurations[1]["id"]);
     }
     else {
       this.set('gotResponse', false);
@@ -159,6 +159,8 @@ class WctLogin extends PolymerElement {
     form.addEventListener('submit',(event)=>{
       event.preventDefault();
       let loginData = new FormData(form);
+
+      alert('Hey! Thanks for showing interest');
       // TODO: Here we can handle data in a way we desire
     });
   }
