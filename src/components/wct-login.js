@@ -9,7 +9,6 @@
  */
 
 import { PolymerElement, html } from '../../node_modules/@polymer/polymer/polymer-element.js';
-import '../../node_modules/@polymer/iron-ajax/iron-ajax.js';
 import '../styles/shared-styles.js';
 
 class WctLogin extends PolymerElement {
@@ -62,15 +61,6 @@ class WctLogin extends PolymerElement {
           <table>
         </form>
       </div>
-      
-      <iron-ajax
-       auto
-       method="GET"
-       url="src/configurations/configurator.json"
-       on-response="_readConfigurations" 
-       handle-as="json"
-      ><iron-ajax>
-
     `;
   }
 
@@ -86,30 +76,17 @@ class WctLogin extends PolymerElement {
       },
       selected : {
         type  : String,
-        observer  : '_getRequiredConfiguration'
       },
-      configurations : Array,
-      selectedConfiguration : Array,
+      configurations : {
+        type  : Array,
+        observer: '_setConfigurations'
+      },
+      selectedConfiguration : {
+        type: Array,
+        observer: '_getRequiredConfiguration'
+      },
       headText: String,
-      model : Object
     };
-  }
-
-  /**
-   * METHOD-1: Method to be called once configurations 
-   * fetched from server via AJAX
-   */
-  _readConfigurations(event,request){
-
-    request.completes.then(()=>{
-      this._setConfigurations(request.response.loginConfigurations);
-      this._getRequiredConfiguration();
-    }, ()=>{
-      this.set('gotResponse', false);
-      this.set('configurations', []);
-      this.set('selected', undefined);
-      this.set('selectedConfiguration', []);
-    });
   }
 
   /**
@@ -118,13 +95,11 @@ class WctLogin extends PolymerElement {
   _setConfigurations(configurations){
     if(configurations.length) {
       this.set('gotResponse', true);
-      this.set('configurations', configurations);
-      this.set('selected', configurations[1]["id"]);
+      this.set('selected', configurations[0]["id"]);
+      this._getRequiredConfiguration();
     }
     else {
       this.set('gotResponse', false);
-      this.set('configurations', []);
-      this.set('selected', undefined);
       this.set('selectedConfiguration', []);
     }  
   }
@@ -134,15 +109,18 @@ class WctLogin extends PolymerElement {
    * option selected. 
    */  
   _getRequiredConfiguration(){
-    if(this.selected) {
-      this.configurations.some((item, index)=>{
-        if(item.id === this.selected) {
-          this.set('selectedConfiguration', item.data);
-          this._generateModel();
-          return true;
-        }
-      });
+    let configurations = this.configurations;
+    let selectedId = this.selected;
+    let data;
+
+    for(let i=0; i<=configurations.length;i++){
+      let configurationId = configurations[i].id;
+      if(selectedId === configurationId){
+        data = configurations[i].data;
+        break;
+      }
     }
+    this.set('selectedConfiguration',data);
   }
 
   /**

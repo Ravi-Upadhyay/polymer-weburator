@@ -20,6 +20,7 @@ import '../node_modules/@polymer/app-route/app-location.js';
 import '../node_modules/@polymer/app-route/app-route.js';
 import '../node_modules/@polymer/iron-pages/iron-pages.js';
 import '../node_modules/@polymer/iron-selector/iron-selector.js';
+import '../node_modules/@polymer/iron-ajax/iron-ajax.js';
 import '../node_modules/@polymer/paper-icon-button/paper-icon-button.js';
 import './styles/my-icons.js';
 
@@ -101,13 +102,21 @@ class MyApp extends PolymerElement {
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <wct-login head-text="Hope you enjoyed, Let's continue" name="view1"></wct-login>
-            <wct-login head-text="Welcome, Let's do something amazing" name="view2"></wct-signup>
+            <wct-login configurations="[[loginConfigurations]]" head-text="Hope you enjoyed, Let's continue" name="view1"></wct-login>
+            <wct-login configurations="[[signupConfigurations]]" head-text="Welcome, Let's do something amazing" name="view2"></wct-signup>
             <!-- <my-view3 name="view3"></my-view3> -->
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
       </app-drawer-layout>
+
+      <iron-ajax
+        auto
+        method="GET"
+        url="src/configurations/configurator.json"
+        on-response="_readConfigurations" 
+        handle-as="json">
+      <iron-ajax>
     `;
   }
 
@@ -119,7 +128,14 @@ class MyApp extends PolymerElement {
         observer: '_pageChanged'
       },
       routeData: Object,
-      subroute: Object
+      subroute: Object,
+      configurations : Object,
+      loginConfigurations: Array,
+      signupConfigurations: Array,
+      gotResponse : {
+        type  : Boolean,
+        value : false
+      },
     };
   }
 
@@ -167,6 +183,33 @@ class MyApp extends PolymerElement {
         import('./components/my-view404.js');
         break;
     }
+  }
+
+  /**
+   * Method to be called once configurations 
+   * fetched from server via AJAX
+   */
+  _readConfigurations(event,request){
+    request.completes.then(()=>{
+      this._setConfigurations(request.response);
+    }, ()=>{
+      this.set('gotResponse', false);
+      this.set('configurations', []);
+      this.set('loginConfigurations', []);
+      this.set('signupConfigurations', []);
+    });
+  }
+
+  /**
+   * Method to set/unset selected configuration based on the response.
+   */
+  _setConfigurations(configurations){
+    this.set('gotResponse', true);
+    this.set('configurations', configurations);
+    let loginConf = configurations.loginConfigurations || [];
+    let signupConf = configurations.signupConfigurations || [];
+    this.set('loginConfigurations', loginConf);
+    this.set('signupConfigurations', signupConf);
   }
 }
 
