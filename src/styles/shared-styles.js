@@ -48,6 +48,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
 
       table.wct-form-table {
         width : 100%;
+        margin : 10px auto;
       }
 
       table.wct-form-table tr {

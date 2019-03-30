@@ -84,7 +84,7 @@ class MyApp extends PolymerElement {
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="view1" href="[[rootPath]]view1">View One</a>
+            <a name="view1" href="[[rootPath]]view1">Login Configurations</a>
             <a name="view2" href="[[rootPath]]view2">View Two</a>
             <a name="view3" href="[[rootPath]]view3">View Three</a>
           </iron-selector>
@@ -101,7 +101,7 @@ class MyApp extends PolymerElement {
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <my-view1 name="view1"></my-view1>
+            <wct-login name="view1"></wct-login>
             <my-view2 name="view2"></my-view2>
             <my-view3 name="view3"></my-view3>
             <my-view404 name="view404"></my-view404>
@@ -155,7 +155,7 @@ class MyApp extends PolymerElement {
     // statement, so break it up.
     switch (page) {
       case 'view1':
-        import('./components/my-view1.js');
+        import('./components/wct-login.js');
         break;
       case 'view2':
         import('./components/my-view2.js');
