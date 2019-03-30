@@ -66,5 +66,101 @@
                 }
             ]
         }
+    ],
+    "signupConfigurations"  : [
+        {
+            "id"    : "simpleSignup",
+            "data"  : [
+                {
+                    "type"      : "text",
+                    "label"     : "Name",
+                    "name"      : "name",
+                    "id"        : "name",
+                    "active"    : true
+                },
+                {
+                    "type"      : "email",
+                    "label"     : "Email",
+                    "name"      : "email",
+                    "id"        : "email",
+                    "active"    : true
+                },
+                {
+                    "type"      : "password",
+                    "label"     : "Password",
+                    "name"      : "password",
+                    "id"        : "password",
+                    "active"    : true
+                },
+                {
+                    "type"      : "password",
+                    "label"     : "Re-enter Password",
+                    "name"      : "re-password",
+                    "id"        : "re-password",
+                    "active"    : true
+                },
+                {
+                    "type"      : "radio",
+                    "label"     : "Gender",
+                    "name"      : "gender",
+                    "id"        : "gender",
+                    "options"   : [
+                        {
+                            "value" : "male", 
+                            "label"   : "Male"
+                        },
+                        {
+                            "value" : "female", 
+                            "label"   : "Female"                            
+                        },
+                        {
+                            "value" : "transgender", 
+                            "label"   : "Transgender"                            
+                        }
+                    ],
+                    "active"    : false
+                },
+                {
+                    "type"      : "submit",
+                    "value"     : "Signup",
+                    "name"      : "signup",
+                    "id"        : "signup",
+                    "active"    : true
+                }
+            ]
+        },
+        {
+            "id"    : "detailedSignup",
+            "data"  : [
+                {
+                    "type"      : "text",
+                    "label"     : "User name",
+                    "name"      : "userName",
+                    "id"        : "userName",
+                    "active"    : true
+                },
+                {
+                    "type"      : "password",
+                    "label"     : "Password",
+                    "name"      : "password",
+                    "id"        : "password",
+                    "active"    : true
+                },
+                {
+                    "type"      : "submit",
+                    "value"     : "Login",
+                    "name"      : "login",
+                    "id"        : "login",
+                    "active"    : true
+                },
+                {
+                    "type"      : "checkbox",
+                    "label"     : "Remember Me",
+                    "name"      : "rememberMe",
+                    "id"        : "rememberMe",
+                    "active"    : true
+                }
+            ]
+        }
     ]
 }   
