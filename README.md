@@ -41,7 +41,7 @@ polymer serve
 polymer serve --module-resolution=node
 
 ```
-2. `configurator.json` design.
+2. `configurator.json` design, A code snippet
 
 ```json
 {   
@@ -118,4 +118,5 @@ polymer serve --module-resolution=node
 4. ~~To give proper introduction of the project.~~
 5. Keep mention best practices followed in the code.
 6. Keep mentioning the ideas.
-7. Unit testing
+7. Adding event listeners to all forms dynamically to stop default action and chanallize the flow.
+8. Unit testing
