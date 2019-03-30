@@ -15,6 +15,10 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
   <template>
     <style>
       .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         margin: 24px;
         padding: 16px;
         color: #757575;
@@ -41,22 +45,64 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         font-size: 22px;
       }
 
-      form {
-        width : 60%;
+      form.wct-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
         margin : 50px auto;
+        min-width: 50%;
+        color: var(--app-secondary-color);
       }
 
       table.wct-form-table {
-        width : 100%;
-        margin : 10px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border  : 1px solid grey;
+        border-radius : 10px;
+        box-shadow : 1px 2px 2px grey;
+        padding : 50px 20px;
+        width: 100%;
       }
 
       table.wct-form-table tr {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
         width : 100%;
-        height : 30px;
+        height : 50px;
       }
+      
       table.wct-form-table tr td {
-        margin : auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex: 1 0 0;
+      }
+      
+      table.wct-form-table tr td input {
+        align-self: center;
+        width: 80%;
+        height: 30px;
+      }
+
+      table.wct-form-table tr td label {
+        align-self: center;
+        width: 80%;
+        height: 30px;
+      }
+
+      table.wct-form-table tr td input[type="submit"]{
+        width: 120px;
+        background-color : var(--app-primary-color);
+        color: white;
+        font-weight: bold;
+        border: none;
       }
     </style>
   </template>

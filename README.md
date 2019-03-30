@@ -89,6 +89,7 @@ polymer serve --module-resolution=node
 
 1. Robust handling and cleaning of the state when data changes.
 2. Now, handling only `input` elements, elements like `select` and are not being handled.
+3. Responsiveness
 
 ---
 
@@ -98,6 +99,7 @@ polymer serve --module-resolution=node
 2. To provide mechanism to change the code on the fly. To give option to select from one from the available configurations.
 3. To provide more details/information about the fields to provide more customizable option. Like `required`, `min`, `max`
 4. To check and increase the number of elements compatable with the solution.
+5. Styling is not much, Can be implemented in future.
 
 
 ---

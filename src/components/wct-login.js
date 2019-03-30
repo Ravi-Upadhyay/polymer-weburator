@@ -23,6 +23,9 @@ class WctLogin extends PolymerElement {
       </style>
 
       <div class="card">
+
+        <h1>[[headText]]</h1>
+
         <!-- TODO: Advanced Version, Give user choice to change configuration on the fly...
         <form>
           <table class="wct-form-table">
@@ -40,7 +43,7 @@ class WctLogin extends PolymerElement {
           </table>
         </form> -->
 
-        <form id="login-form" enctype="multipart/form-data">
+        <form class="wct-form" id="login-form" enctype="multipart/form-data">
           <table class="wct-form-table">
             <template is="dom-repeat" items="[[selectedConfiguration]]">
               <template is="dom-if" if="[[item.active]]">
@@ -87,6 +90,7 @@ class WctLogin extends PolymerElement {
       },
       configurations : Array,
       selectedConfiguration : Array,
+      headText: String,
       model : Object
     };
   }
@@ -160,7 +164,7 @@ class WctLogin extends PolymerElement {
       event.preventDefault();
       let loginData = new FormData(form);
 
-      alert('Hey! Thanks for showing interest');
+      alert('I got it, Working on your request');
       // TODO: Here we can handle data in a way we desire
     });
   }

@@ -101,8 +101,8 @@ class MyApp extends PolymerElement {
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <wct-login name="view1"></wct-login>
-            <wct-signup name="view2"></wct-signup>
+            <wct-login head-text="Hope you enjoyed, Let's continue" name="view1"></wct-login>
+            <wct-login head-text="Welcome, Let's do something amazing" name="view2"></wct-signup>
             <!-- <my-view3 name="view3"></my-view3> -->
             <my-view404 name="view404"></my-view404>
           </iron-pages>
@@ -158,7 +158,7 @@ class MyApp extends PolymerElement {
         import('./components/wct-login.js');
         break;
       case 'view2':
-        import('./components/wct-signup.js');
+        import('./components/wct-login.js');
         break;
       case 'view3':
         // import('./components/my-view3.js');

@@ -8,16 +8,15 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement, html } from '../../node_modules/@polymer/polymer';
 import '../styles/shared-styles.js';
 
-class MyView2 extends PolymerElement {
+class WctSignup extends PolymerElement {
   static get template() {
     return html`
       <style include="shared-styles">
         :host {
           display: block;
-
           padding: 10px;
         }
       </style>
@@ -32,4 +31,4 @@ class MyView2 extends PolymerElement {
   }
 }
 
-window.customElements.define('my-view2', MyView2);
+window.customElements.define('wct-signup', WctSignup);
