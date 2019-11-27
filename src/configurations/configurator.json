@@ -23,14 +23,14 @@
                     "value"     : "Login",
                     "name"      : "login",
                     "id"        : "login",
-                    "active"    : true
+                    "active"    : false
                 },
                 {
                     "type"      : "checkbox",
                     "label"     : "Remember Me",
                     "name"      : "rememberMe",
                     "id"        : "rememberMe",
-                    "active"    : false
+                    "active"    : true
                 }
             ]
         },
